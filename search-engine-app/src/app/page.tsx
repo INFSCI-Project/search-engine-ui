@@ -1,10 +1,14 @@
+"use client";
+import { InputGroup } from "@/components/ui/input-group";
+import { Flex, Input, Text, InputElement } from "@chakra-ui/react";
+
 const Home = () => {
   return (
-    <div className="flex h-screen items-center justify-center">
-      <div className="flex flex-col w-[600px]">
-        <div>hi</div>
-      </div>
-    </div>
+    <Flex w="full" h="vh" justify="center" align="center">
+      <InputGroup>
+        <Input bg="white" maxW={600} px={5} size="xs" />
+      </InputGroup>
+    </Flex>
   );
 };
 

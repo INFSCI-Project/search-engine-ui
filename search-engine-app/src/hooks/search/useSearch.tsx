@@ -13,7 +13,7 @@ const useSearch = () => {
       });
       const data = response.data as SearchQueryResponseType;
       setisLoadingSeachResults(false);
-      console.log(data.agg_data.results);
+      console.log(data.results);
     } catch (err) {
       setisLoadingSeachResults(false);
       console.log(err);

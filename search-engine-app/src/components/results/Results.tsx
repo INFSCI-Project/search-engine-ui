@@ -1,10 +1,10 @@
 import { SearchQueryResponseType } from "@/types/api";
 
-interface ResultsLayoutProps {
+interface ResultsProps {
   queryResults: SearchQueryResponseType | null;
 }
-const ResultsLayout: React.FC<ResultsLayoutProps> = ({ queryResults }) => {
+const Results: React.FC<ResultsProps> = ({ queryResults }) => {
   return <div>{queryResults ? <></> : <div>Fetched Results</div>}</div>;
 };
 
-export default ResultsLayout;
+export default Results;

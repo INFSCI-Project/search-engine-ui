@@ -6,8 +6,8 @@ interface ResultsDisplayProps {
 
 const ResultsDisplay: React.FC<ResultsDisplayProps> = ({ queryResults }) => {
   return (
-    <div className="flex flex-col mt-5 gap-5">
-      {queryResults.results.slice(0, 50).map((result, index) => {
+    <div className="flex flex-col gap-5">
+      {queryResults.results.slice(0, 10).map((result, index) => {
         return (
           <div key={index} className="flex flex-col gap-2">
             <p className="font-semibold text-lg">{result.source.title}</p>
@@ -20,6 +20,7 @@ const ResultsDisplay: React.FC<ResultsDisplayProps> = ({ queryResults }) => {
           </div>
         );
       })}
+      <div className=""></div>
     </div>
   );
 };

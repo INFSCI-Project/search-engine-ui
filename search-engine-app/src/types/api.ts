@@ -1,7 +1,7 @@
 interface SearchQueryResponseType {
   agg_data: {
-    "tga-agg": {
-      doc_content: number;
+    "tja-agg": {
+      doc_count: number;
       labels: {
         buckets: {
           doc_count: number;

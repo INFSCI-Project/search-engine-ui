@@ -25,15 +25,19 @@ const Home = () => {
             handleSearch={handleSearchQuery}
           />
         </div>
-        <div className="flex w-full ">
-          <div
-            className="w-[70%]
+        {!queryResults ? (
+          <></>
+        ) : (
+          <div className="flex w-full ">
+            <div
+              className="w-[70%]
         "
-          >
-            <Results />
+            >
+              <Results />
+            </div>
+            <div className="ml-10 w-[30%] mt-5">Hi there</div>
           </div>
-          <div className="ml-10 w-[30%] mt-5">Hi there</div>
-        </div>
+        )}
       </div>
     </SearchQueryProvider>
   );

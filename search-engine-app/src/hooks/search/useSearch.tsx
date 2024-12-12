@@ -1,3 +1,4 @@
+import { SearchQueryResponseType } from "@/types/api";
 import axios from "axios";
 import { useState } from "react";
 
@@ -10,8 +11,9 @@ const useSearch = () => {
       const response = await axios.post("http://127.0.0.1:3000/search", {
         query: `${search_query}`,
       });
+      const data = response.data as SearchQueryResponseType;
       setisLoadingSeachResults(false);
-      console.log(response);
+      console.log(data.agg_data.results);
     } catch (err) {
       setisLoadingSeachResults(false);
       console.log(err);

@@ -12,13 +12,27 @@ const Home = () => {
       queryResults={queryResults}
       isLoadingQueryResults={isLoadingSeachResults}
     >
-      <div className="flex items-center justify-center h-screen">
-        <div className="flex flex-col w-[650px]">
+      <div
+        className={
+          !queryResults
+            ? `flex items-center justify-center h-screen`
+            : `mx-[200px] mt-10`
+        }
+      >
+        <div className={`flex flex-col w-[650px]`}>
           <SearchBar
             isLoadingQueryResults={isLoadingSeachResults}
             handleSearch={handleSearchQuery}
           />
-          <Results />
+        </div>
+        <div className="flex w-full ">
+          <div
+            className="w-[70%]
+        "
+          >
+            <Results />
+          </div>
+          <div className="ml-10 w-[30%] mt-5">Hi there</div>
         </div>
       </div>
     </SearchQueryProvider>

@@ -1,4 +1,5 @@
 "use client";
+import Results from "@/components/results/Results";
 import SearchBar from "@/components/search/SearchBar";
 import { SearchQueryProvider } from "@/context/SearchQueryContext";
 import useSearch from "@/hooks/search/useSearch";
@@ -12,11 +13,12 @@ const Home = () => {
       isLoadingQueryResults={isLoadingSeachResults}
     >
       <div className="flex items-center justify-center h-screen">
-        <div className="flex flex-col w-[550px]">
+        <div className="flex flex-col w-[650px]">
           <SearchBar
             isLoadingQueryResults={isLoadingSeachResults}
             handleSearch={handleSearchQuery}
           />
+          <Results />
         </div>
       </div>
     </SearchQueryProvider>

@@ -37,7 +37,7 @@ export const SearchQueryProvider = ({
 };
 
 // Custom hook to use the context
-export const useSearchQuery = (): SearchQueryContextType => {
+export const useSearchQueryContext = (): SearchQueryContextType => {
   const context = useContext(SearchQueryContext);
   if (context === undefined) {
     throw new Error("useSearchQuery must be used within a SearchQueryProvider");

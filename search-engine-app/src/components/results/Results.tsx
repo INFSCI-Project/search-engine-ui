@@ -1,10 +1,18 @@
-import { SearchQueryResponseType } from "@/types/api";
+import { useSearchQueryContext } from "@/context/SearchQueryContext";
+import ResultsDisplay from "./ResultsDisplay";
 
-interface ResultsProps {
-  queryResults: SearchQueryResponseType | null;
-}
-const Results: React.FC<ResultsProps> = ({ queryResults }) => {
-  return <div>{queryResults ? <></> : <div>Fetched Results</div>}</div>;
+const Results = () => {
+  const { queryResults, isLoadingQueryResults } = useSearchQueryContext();
+  console.log(queryResults);
+  return (
+    <div>
+      {!queryResults ? (
+        <>{isLoadingQueryResults ? <p>Fetching Results</p> : <></>}</>
+      ) : (
+        <ResultsDisplay queryResults={queryResults} />
+      )}
+    </div>
+  );
 };
 
 export default Results;

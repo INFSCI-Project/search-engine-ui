@@ -7,7 +7,10 @@ const Home = () => {
   const { handleSearchQuery, isLoadingSeachResults, queryResults } =
     useSearch();
   return (
-    <SearchQueryProvider queryResults={queryResults}>
+    <SearchQueryProvider
+      queryResults={queryResults}
+      isLoadingQueryResults={isLoadingSeachResults}
+    >
       <div className="flex items-center justify-center h-screen">
         <div className="flex flex-col w-[550px]">
           <SearchBar

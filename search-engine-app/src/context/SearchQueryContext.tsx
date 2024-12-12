@@ -6,6 +6,7 @@ import React, { createContext, useContext } from "react";
 // Define the context type
 interface SearchQueryContextType {
   queryResults: SearchQueryResponseType | null;
+  isLoadingQueryResults: boolean;
 }
 
 // Create the context
@@ -17,15 +18,19 @@ const SearchQueryContext = createContext<SearchQueryContextType | undefined>(
 interface SearchQueryProviderProps {
   children: React.ReactNode;
   queryResults: SearchQueryResponseType | null;
+  isLoadingQueryResults: boolean;
 }
 
 // Provider Component
 export const SearchQueryProvider = ({
   children,
   queryResults,
+  isLoadingQueryResults,
 }: SearchQueryProviderProps) => {
   return (
-    <SearchQueryContext.Provider value={{ queryResults }}>
+    <SearchQueryContext.Provider
+      value={{ queryResults, isLoadingQueryResults }}
+    >
       {children}
     </SearchQueryContext.Provider>
   );

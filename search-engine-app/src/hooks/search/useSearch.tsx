@@ -5,6 +5,8 @@ import { useState } from "react";
 const useSearch = () => {
   const [isLoadingSeachResults, setisLoadingSeachResults] =
     useState<boolean>(false);
+  const [queryResults, setQueryResults] =
+    useState<SearchQueryResponseType | null>(null);
   const handleSearchQuery = async (search_query: string) => {
     try {
       setisLoadingSeachResults(true);
@@ -12,14 +14,14 @@ const useSearch = () => {
         query: `${search_query}`,
       });
       const data = response.data as SearchQueryResponseType;
+      setQueryResults(data);
       setisLoadingSeachResults(false);
-      console.log(data.results);
     } catch (err) {
       setisLoadingSeachResults(false);
       console.log(err);
     }
   };
-  return { handleSearchQuery, isLoadingSeachResults };
+  return { handleSearchQuery, isLoadingSeachResults, queryResults };
 };
 
 export default useSearch;

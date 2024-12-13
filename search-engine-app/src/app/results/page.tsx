@@ -37,7 +37,7 @@ const ResultsPage = () => {
       {!queryResults ? (
         <></>
       ) : (
-        <div className="flex mx-[100px] mt-10">
+        <div className="flex max-w-[1100px] mx-auto mt-10">
           <div className="w-[70%]">
             <div className={`flex flex-col`}>
               <SearchBar

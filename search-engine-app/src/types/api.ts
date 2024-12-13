@@ -20,6 +20,8 @@ interface SearchQueryResponseType {
       abstract: string;
       title: string;
       doi: string;
+      entities: { entity: string; label: string }[];
+      authors: string[];
     };
   }[];
 }

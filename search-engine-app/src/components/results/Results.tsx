@@ -9,7 +9,7 @@ const Results = () => {
       {!queryResults ? (
         <>{isLoadingQueryResults ? <p>Fetching Results</p> : <></>}</>
       ) : (
-        <div className="mt-5">
+        <div className={isLoadingQueryResults ? "mt-1" : "mt-5"}>
           <div className="flex flex-col mb-4 gap-2">
             <p className="flex gap-1 text-sm text-gray-500">
               {`About ${queryResults.agg_data["tja-agg"].doc_count} results (3.07 minutes)`}

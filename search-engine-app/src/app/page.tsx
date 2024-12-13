@@ -1,6 +1,7 @@
 "use client";
 import Results from "@/components/results/Results";
 import SearchBar from "@/components/search/SearchBar";
+import WordRotate from "@/components/ui/word-rotate";
 import { SearchQueryProvider } from "@/context/SearchQueryContext";
 import useSearch from "@/hooks/search/useSearch";
 import { useEffect, useState } from "react";
@@ -46,6 +47,18 @@ const Home = () => {
             handleSearch={handleSearchQuery}
           />
         </div>
+        {isLoadingSeachResults ? (
+          <WordRotate
+            className="text-sm bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent mt-1"
+            words={[
+              "Fetching results...",
+              "Expanding your query...",
+              "Generating results...",
+            ]}
+          />
+        ) : (
+          <></>
+        )}
         {!queryResults ? (
           <></>
         ) : (

@@ -1,5 +1,5 @@
 import { SearchQueryResponseType } from "@/types/api";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import ResultsPagination from "./ResultsPagination";
 import { useSearchQueryContext } from "@/context/SearchQueryContext";
 

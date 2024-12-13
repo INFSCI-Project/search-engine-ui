@@ -18,8 +18,8 @@ const ResultsPagination: React.FC<ResultsPaginationProps> = ({
     <ReactPaginate
       pageCount={pageCount}
       breakLabel="..."
-      nextLabel="next"
-      previousLabel="back"
+      nextLabel=">"
+      previousLabel="<"
       onPageChange={handlePageChange}
       pageRangeDisplayed={2} // Show 5 pages at a time
       marginPagesDisplayed={2} // Always show 2 pages at the start and end

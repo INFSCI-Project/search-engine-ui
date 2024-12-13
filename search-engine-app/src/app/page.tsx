@@ -42,7 +42,7 @@ const Home = () => {
             </div>
             <div className="ml-10 w-[30%] mt-5">
               <div className="flex flex-col">
-                <p className="text-sm text-gray-500">
+                <p className="text-sm mb-2 text-gray-700">
                   Categories related to {`${queryResults.query}`}
                 </p>
                 <div className="mt-2 flex flex-wrap gap-2.5">

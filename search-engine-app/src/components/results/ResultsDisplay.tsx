@@ -1,13 +1,24 @@
 import { SearchQueryResponseType } from "@/types/api";
+import { useState } from "react";
+import ResultsPagination from "./ResultsPagination";
 
 interface ResultsDisplayProps {
   queryResults: SearchQueryResponseType;
 }
 
 const ResultsDisplay: React.FC<ResultsDisplayProps> = ({ queryResults }) => {
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const itemsPerPage = 5;
+  // page count
+  const pageCount = Math.ceil(queryResults.results.length / itemsPerPage);
+  // dynamic results display
+  const currentResults = queryResults.results.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
   return (
     <div className="flex flex-col gap-5">
-      {queryResults.results.slice(0, 10).map((result, index) => {
+      {currentResults.map((result, index) => {
         return (
           <div key={index} className="flex flex-col gap-2">
             <div className="flex flex-col gap-1">
@@ -30,7 +41,12 @@ const ResultsDisplay: React.FC<ResultsDisplayProps> = ({ queryResults }) => {
           </div>
         );
       })}
-      <div className=""></div>
+      <div className="pb-10">
+        <ResultsPagination
+          pageCount={pageCount}
+          setCurrentPage={setCurrentPage} // Pass setCurrentPage to pagination component
+        />
+      </div>
     </div>
   );
 };

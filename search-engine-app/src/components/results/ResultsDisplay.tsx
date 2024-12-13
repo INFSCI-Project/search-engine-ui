@@ -57,14 +57,14 @@ const ResultsDisplay: React.FC<ResultsDisplayProps> = ({ queryResults }) => {
               </a>
             </div>
             <div className="flex flex-col">
-              <p className="font-extralight text-sm text-gray-500">
+              <p className=" text-sm text-gray-500">
                 {result.source.abstract.slice(0, 300) + " ..."}
               </p>
               <div className="flex flex-col gap-2 mt-2">
                 <div className="flex flex-wrap">
                   {result.source.authors.slice(0, 4).map((author, index) => {
                     return (
-                      <p className="text-sm text-gray-700" key={index}>
+                      <p className="text-sm text-gray-800" key={index}>
                         {author}
                       </p>
                     );

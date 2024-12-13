@@ -3,6 +3,7 @@ import Results from "@/components/results/Results";
 import SearchBar from "@/components/search/SearchBar";
 import { SearchQueryProvider } from "@/context/SearchQueryContext";
 import useSearch from "@/hooks/search/useSearch";
+import { useEffect, useState } from "react";
 
 const filterKeyMap: { [key: string]: string } = {
   TKA: "Total Knee",
@@ -15,8 +16,20 @@ const filterKeyMap: { [key: string]: string } = {
 const Home = () => {
   const { handleSearchQuery, isLoadingSeachResults, queryResults } =
     useSearch();
+  const [filterKeys, setFilterKeys] = useState<string[]>([]);
+
+  const handleAddToFilterKeys = (key: string) => {
+    setFilterKeys(
+      (prev) =>
+        prev.includes(key)
+          ? prev.filter((filter) => filter !== key) // Remove the key if it exists
+          : [...prev, key] // Add the key if it doesn't exist
+    );
+  };
+
   return (
     <SearchQueryProvider
+      filterKeys={filterKeys}
       queryResults={queryResults}
       isLoadingQueryResults={isLoadingSeachResults}
     >
@@ -24,7 +37,7 @@ const Home = () => {
         className={
           !queryResults
             ? `flex items-center justify-center h-screen`
-            : `mx-[200px] mt-10`
+            : `mx-[100px] mt-10`
         }
       >
         <div className={`flex flex-col w-[650px]`}>
@@ -50,9 +63,16 @@ const Home = () => {
                     (bucket, index) => {
                       return (
                         <div
-                          className="w-fit px-3 py-1 bg-gray-100 rounded-lg text-xs text-gray-700 transition-all cursor-pointer
+                          onClick={() => handleAddToFilterKeys(bucket.key)}
+                          className={
+                            filterKeys.includes(bucket.key)
+                              ? `w-fit px-3 py-1 rounded-lg text-xs text-gray-700 transition-all cursor-pointer
+                                   bg-gradient-to-r from-blue-400 to-blue-500
+                                   text-white`
+                              : `w-fit px-3 py-1 bg-gray-100 rounded-lg text-xs text-gray-700 transition-all cursor-pointer
                                    hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-500
-                                   hover:text-white"
+                                   hover:text-white`
+                          }
                           key={index}
                         >
                           {filterKeyMap[bucket.key] || bucket.key}

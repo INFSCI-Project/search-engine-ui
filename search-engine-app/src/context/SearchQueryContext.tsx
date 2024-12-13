@@ -7,6 +7,7 @@ import React, { createContext, useContext } from "react";
 interface SearchQueryContextType {
   queryResults: SearchQueryResponseType | null;
   isLoadingQueryResults: boolean;
+  filterKeys: string[];
 }
 
 // Create the context
@@ -19,6 +20,7 @@ interface SearchQueryProviderProps {
   children: React.ReactNode;
   queryResults: SearchQueryResponseType | null;
   isLoadingQueryResults: boolean;
+  filterKeys: string[];
 }
 
 // Provider Component
@@ -26,10 +28,11 @@ export const SearchQueryProvider = ({
   children,
   queryResults,
   isLoadingQueryResults,
+  filterKeys,
 }: SearchQueryProviderProps) => {
   return (
     <SearchQueryContext.Provider
-      value={{ queryResults, isLoadingQueryResults }}
+      value={{ queryResults, isLoadingQueryResults, filterKeys }}
     >
       {children}
     </SearchQueryContext.Provider>

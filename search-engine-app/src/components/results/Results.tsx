@@ -3,7 +3,7 @@ import ResultsDisplay from "./ResultsDisplay";
 
 const Results = () => {
   const { queryResults, isLoadingQueryResults } = useSearchQueryContext();
-  console.log(queryResults?.agg_data["tja-agg"]);
+
   return (
     <div>
       {!queryResults ? (

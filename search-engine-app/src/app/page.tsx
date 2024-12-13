@@ -40,40 +40,30 @@ const Home = () => {
       queryResults={queryResults}
       isLoadingQueryResults={isLoadingSeachResults}
     >
-      <div
-        className={
-          !queryResults
-            ? `flex items-center justify-center h-screen`
-            : `mx-[100px] mt-10`
-        }
-      >
+      <div className={`flex items-center justify-center h-screen`}>
         <div className="flex flex-col gap-3 w-[650px]">
-          {!queryResults ? (
-            <div className="flex flex-col gap-2">
-              <p className="text-4xl font-medium bg-gradient-to-r from-blue-500 to-blue-700 text-transparent bg-clip-text">
-                Enhanced Pubmed search for Clinicians & Researchers
-              </p>
-              <p className="text-sm text-gray-600">
-                Enhanching Pubmed's searching capabilities for researchers and
-                clinicians
-              </p>
-              <div className="flex gap-5 my-2">
-                {searchPrompts.map((prompt, index) => {
-                  return (
-                    <p
-                      onClick={() => handleSearchQuery(prompt)}
-                      key={index}
-                      className="text-xs border border-1 hover:border-0 transition-all cursor-pointer hover:translate-y-[-0.2rem] hover:bg-blue-100 rounded-lg p-4 leading-relaxed shadow"
-                    >
-                      {prompt}
-                    </p>
-                  );
-                })}
-              </div>
+          <div className="flex flex-col gap-2">
+            <p className="text-4xl font-medium bg-gradient-to-r from-blue-500 to-blue-700 text-transparent bg-clip-text">
+              Enhanced Pubmed search for Clinicians & Researchers
+            </p>
+            <p className="text-sm text-gray-600">
+              Enhanching Pubmed's searching capabilities for researchers and
+              clinicians
+            </p>
+            <div className="flex gap-5 my-2">
+              {searchPrompts.map((prompt, index) => {
+                return (
+                  <p
+                    onClick={() => handleSearchQuery(prompt)}
+                    key={index}
+                    className="text-xs border border-1 hover:border-0 transition-all cursor-pointer hover:translate-y-[-0.2rem] hover:bg-blue-100 rounded-lg p-4 leading-relaxed shadow"
+                  >
+                    {prompt}
+                  </p>
+                );
+              })}
             </div>
-          ) : (
-            <></>
-          )}
+          </div>
           <div className={`flex flex-col`}>
             <SearchBar
               isLoadingQueryResults={isLoadingSeachResults}

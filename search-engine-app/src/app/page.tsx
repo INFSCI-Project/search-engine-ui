@@ -4,7 +4,7 @@ import SearchBar from "@/components/search/SearchBar";
 import WordRotate from "@/components/ui/word-rotate";
 import { SearchQueryProvider } from "@/context/SearchQueryContext";
 import useSearch from "@/hooks/search/useSearch";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const filterKeyMap: { [key: string]: string } = {
   TKA: "Total Knee",
@@ -93,7 +93,7 @@ const Home = () => {
             )}
           </div>
         </div>
-        {!queryResults ? (
+        {/* {!queryResults ? (
           <></>
         ) : (
           <div className="flex w-full ">
@@ -131,7 +131,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-        )}
+        )} */}
       </div>
     </SearchQueryProvider>
   );

@@ -1,12 +1,13 @@
+import { queryResultsAtom } from "@/lib/atom";
 import { SearchQueryResponseType } from "@/types/api";
 import axios from "axios";
+import { useAtom } from "jotai";
 import { useState } from "react";
 
 const useSearch = () => {
   const [isLoadingSeachResults, setisLoadingSeachResults] =
     useState<boolean>(false);
-  const [queryResults, setQueryResults] =
-    useState<SearchQueryResponseType | null>(null);
+  const [{ queryResults }, setQueryResults] = useAtom(queryResultsAtom);
   const handleSearchQuery = async (search_query: string) => {
     try {
       setisLoadingSeachResults(true);
@@ -14,8 +15,9 @@ const useSearch = () => {
         query: `${search_query}`,
       });
       const data = response.data as SearchQueryResponseType;
-      setQueryResults(data);
+      setQueryResults({ queryResults: data });
       setisLoadingSeachResults(false);
+      window.location.href = "/results";
     } catch (err) {
       setisLoadingSeachResults(false);
       console.log(err);

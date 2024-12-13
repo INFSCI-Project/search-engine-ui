@@ -10,10 +10,11 @@ const Results = () => {
         <>{isLoadingQueryResults ? <p>Fetching Results</p> : <></>}</>
       ) : (
         <div className="mt-5">
-          <p className="flex gap-1 mb-3 text-sm bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent ">
-            <span className="text-gray-700">Search results :</span>
-            <span>{`${queryResults.agg_data["tja-agg"].doc_count} pages`}</span>
-          </p>
+          <div className="flex flex-col mb-4 gap-2">
+            <p className="flex gap-1 text-sm text-gray-500">
+              {`About ${queryResults.agg_data["tja-agg"].doc_count} results (3.07 minutes)`}
+            </p>
+          </div>
           <ResultsDisplay queryResults={queryResults} />
         </div>
       )}

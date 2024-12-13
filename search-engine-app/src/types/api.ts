@@ -19,6 +19,7 @@ interface SearchQueryResponseType {
     source: {
       abstract: string;
       title: string;
+      doi: string;
     };
   }[];
 }

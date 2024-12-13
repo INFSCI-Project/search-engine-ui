@@ -24,6 +24,8 @@ interface SearchQueryResponseType {
       authors: string[];
     };
   }[];
+  returned_results: number;
+  total_results: number;
 }
 
 export { type SearchQueryResponseType };

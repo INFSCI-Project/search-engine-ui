@@ -83,45 +83,6 @@ const Home = () => {
             )}
           </div>
         </div>
-        {/* {!queryResults ? (
-          <></>
-        ) : (
-          <div className="flex w-full ">
-            <div className="w-[70%]">
-              <Results />
-            </div>
-            <div className="ml-10 w-[30%] mt-5">
-              <div className="flex flex-col">
-                <p className="text-sm mb-2 text-gray-700">
-                  Categories related to {`${queryResults.query}`}
-                </p>
-                <div className="mt-2 flex flex-wrap gap-2.5">
-                  {queryResults.agg_data["tja-agg"].labels.buckets.map(
-                    (bucket, index) => {
-                      return (
-                        <div
-                          onClick={() => handleAddToFilterKeys(bucket.key)}
-                          className={
-                            filterKeys.includes(bucket.key)
-                              ? `w-fit px-3 py-1 rounded-lg text-xs text-gray-700 transition-all cursor-pointer
-                                   bg-gradient-to-r from-blue-400 to-blue-500
-                                   text-white`
-                              : `w-fit px-3 py-1 bg-gray-100 rounded-lg text-xs text-gray-700 transition-all cursor-pointer
-                                   hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-500
-                                   hover:text-white`
-                          }
-                          key={index}
-                        >
-                          {filterKeyMap[bucket.key] || bucket.key}
-                        </div>
-                      );
-                    }
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        )} */}
       </div>
     </SearchQueryProvider>
   );

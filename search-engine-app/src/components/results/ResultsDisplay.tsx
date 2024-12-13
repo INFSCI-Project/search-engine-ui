@@ -78,7 +78,7 @@ const ResultsDisplay: React.FC<ResultsDisplayProps> = ({ queryResults }) => {
                         className="w-fit px-3 py-1 bg-blue-100 rounded-xl text-xs text-gray-700"
                         key={index}
                       >
-                        {filterKeyMap[entity.entity] || entity.entity}
+                        {`${filterKeyMap[entity.entity] || entity.entity}`}
                       </p>
                     );
                   })}

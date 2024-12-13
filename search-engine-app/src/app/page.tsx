@@ -24,16 +24,7 @@ const Home = () => {
   const { handleSearchQuery, isLoadingSeachResults, queryResults } =
     useSearch();
   const [filterKeys, setFilterKeys] = useState<string[]>([]);
-
-  const handleAddToFilterKeys = (key: string) => {
-    setFilterKeys(
-      (prev) =>
-        prev.includes(key)
-          ? prev.filter((filter) => filter !== key) // Remove the key if it exists
-          : [...prev, key] // Add the key if it doesn't exist
-    );
-  };
-
+  console.log(queryResults);
   return (
     <SearchQueryProvider
       filterKeys={filterKeys}

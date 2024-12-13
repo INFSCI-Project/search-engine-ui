@@ -36,7 +36,7 @@ const Results = () => {
             }
           >
             <p className="flex gap-1 text-sm text-gray-500">
-              {`About ${queryResults.agg_data["tja-agg"].doc_count} results (3.07 minutes)`}
+              {`About ${queryResults.total_results} results (3.07 minutes)`}
             </p>
           </div>
           <ResultsDisplay queryResults={queryResults} />

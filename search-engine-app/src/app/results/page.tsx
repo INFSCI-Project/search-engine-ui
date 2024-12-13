@@ -81,7 +81,11 @@ const ResultsPage = () => {
                         }
                         key={index}
                       >
-                        {filterKeyMap[bucket.key] || bucket.key}
+                        {`${filterKeyMap[bucket.key] || bucket.key} (${
+                          queryResults.agg_data["tja-agg"].labels.buckets.find(
+                            (faucet) => faucet.key === bucket.key
+                          )?.doc_count
+                        })`}
                       </div>
                     );
                   }

@@ -46,19 +46,19 @@ const Home = () => {
             isLoadingQueryResults={isLoadingSeachResults}
             handleSearch={handleSearchQuery}
           />
+          {isLoadingSeachResults ? (
+            <WordRotate
+              className="text-sm bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent mt-1"
+              words={[
+                "Fetching results...",
+                "Expanding your query...",
+                "Generating results...",
+              ]}
+            />
+          ) : (
+            <></>
+          )}
         </div>
-        {isLoadingSeachResults ? (
-          <WordRotate
-            className="text-sm bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent mt-1"
-            words={[
-              "Fetching results...",
-              "Expanding your query...",
-              "Generating results...",
-            ]}
-          />
-        ) : (
-          <></>
-        )}
         {!queryResults ? (
           <></>
         ) : (

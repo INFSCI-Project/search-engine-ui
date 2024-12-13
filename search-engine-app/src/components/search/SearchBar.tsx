@@ -20,7 +20,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       <Input
         type="search"
         placeholder="Any thing you wanna know..."
-        className="pr-10 bg-white h-10"
+        className="pr-10 bg-gray-100 h-10"
         onChange={(e) => setSearchQuery(e.target.value)}
       />
 
@@ -28,7 +28,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         onClick={() => void handleSearch(searchQuery)}
         type="submit"
         size="sm"
-        className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7 p-0 bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white transition-all duration-300 ease-in-out"
+        className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7 p-0 bg-white text-blue-400 hover:bg-blue-500 hover:text-white transition-all duration-300 ease-in-out"
       >
         {isLoadingQueryResults ? (
           <Spinner size="small" className="border-t-blue-500" />

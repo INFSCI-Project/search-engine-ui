@@ -51,7 +51,7 @@ const ResultsDisplay: React.FC<ResultsDisplayProps> = ({ queryResults }) => {
               </p>
               <a
                 href={result.source.doi}
-                className="font-semibold text-lg cursor-pointer transition-all hover:text-blue-800 hover:underline"
+                className="font-semibold text-lg cursor-pointer transition-all hover:text-blue-700 hover:underline"
               >
                 {result.source.title}
               </a>

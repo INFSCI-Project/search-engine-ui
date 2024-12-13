@@ -1,16 +1,16 @@
-import { queryResultsAtom } from "@/lib/atom";
+import { queryResultsAtom, queryRetrievalTimeAtom } from "@/lib/atom";
 import { SearchQueryResponseType } from "@/types/api";
 import axios from "axios";
 import { useAtom } from "jotai";
 import { useState } from "react";
 
 const useSearch = () => {
-  const [queryRetrievalTime, setQueryRetrievalTime] = useState<string | null>(
-    null
-  );
   const [isLoadingSeachResults, setisLoadingSeachResults] =
     useState<boolean>(false);
   const [{ queryResults }, setQueryResults] = useAtom(queryResultsAtom);
+  const [{ retrieval_time }, setQueryRetrievalTime] = useAtom(
+    queryRetrievalTimeAtom
+  );
   const handleSearchQuery = async (search_query: string) => {
     try {
       setisLoadingSeachResults(true);
@@ -25,7 +25,10 @@ const useSearch = () => {
       const end_time = performance.now();
       const duration_in_seconds = (end_time - start_time) / 1000;
       const duration_in_minutes = (duration_in_seconds / 60).toFixed(2);
-      setQueryRetrievalTime(`${duration_in_minutes} minutes`);
+      console.log(duration_in_minutes);
+      setQueryRetrievalTime({
+        retrieval_time: duration_in_minutes,
+      });
 
       // transforming and typecasing response data from the server
       const data = response.data as SearchQueryResponseType;
@@ -40,7 +43,12 @@ const useSearch = () => {
       console.log(err);
     }
   };
-  return { handleSearchQuery, isLoadingSeachResults, queryResults };
+  return {
+    handleSearchQuery,
+    isLoadingSeachResults,
+    queryResults,
+    retrieval_time,
+  };
 };
 
 export default useSearch;

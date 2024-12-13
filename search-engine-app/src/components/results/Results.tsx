@@ -1,8 +1,10 @@
 import { useSearchQueryContext } from "@/context/SearchQueryContext";
 import { useEffect, useState } from "react";
 import ResultsDisplay from "./ResultsDisplay";
+import useSearch from "@/hooks/search/useSearch";
 
 const Results = () => {
+  const { retrieval_time } = useSearch();
   const { queryResults, isLoadingQueryResults } = useSearchQueryContext();
   const [fadeIn, setFadeIn] = useState(false);
 
@@ -36,7 +38,7 @@ const Results = () => {
             }
           >
             <p className="flex gap-1 text-sm text-gray-500">
-              {`About ${queryResults.total_results} results (3.07 minutes)`}
+              {`About ${queryResults.total_results} results (${retrieval_time} minutes)`}
             </p>
           </div>
           <ResultsDisplay queryResults={queryResults} />

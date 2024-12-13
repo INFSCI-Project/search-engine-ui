@@ -4,4 +4,8 @@ interface AtomQueryState {
   queryResults: SearchQueryResponseType | null;
 }
 
-export { type AtomQueryState };
+interface AtomRetrievalTime {
+  retrieval_time: string | null;
+}
+
+export { type AtomQueryState, type AtomRetrievalTime };
